@@ -213,6 +213,8 @@ export type Coach = {
   name: string;
   role: string;
   image: string;
+  width: number;
+  height: number;
   short: string;
   bio: string[];
   focus: string[];
@@ -224,6 +226,8 @@ export const founders: Coach[] = [
     name: "Coach Jeff",
     role: "Founder and Athlete Advisor",
     image: "/images/coach-jeff-portrait.jpg",
+    width: 1400,
+    height: 2100,
     short: "Builds the pathway. Opens the doors.",
     bio: [
       "Jeff founded Ascension Athlete Group on a simple belief: talent gets you the opportunity, and the right team helps you maximize it. He leads the Advisory division, working directly with athletes to evaluate film, sharpen their scouting profile and connect them with the agents, coaches and organizations that can move their career forward.",
@@ -236,6 +240,8 @@ export const founders: Coach[] = [
     name: "Coach K",
     role: "Co-Founder and Head Performance Coach",
     image: "/images/coach-k-portrait.jpg",
+    width: 1130,
+    height: 1400,
     short: "Builds the athlete. Moves the numbers.",
     bio: [
       "Coach K runs the Performance division. His programs are built around the numbers that matter on pro day and the movement that shows up on film: acceleration, change of direction, strength and durability through a full season.",

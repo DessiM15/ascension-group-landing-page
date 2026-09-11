@@ -40,16 +40,15 @@ export default function FoundersPage() {
         <section key={c.slug} id={c.slug} className="scroll-mt-20 border-t border-white/10">
           <div className="container-x py-10 md:py-14">
             <div className={`grid items-center gap-8 lg:grid-cols-12 lg:gap-12 ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
-              <Reveal y={0} className="lg:col-span-4">
-                <div className="relative mx-auto aspect-[4/5] w-full max-w-[420px] overflow-hidden lg:mx-0 lg:max-h-[62vh]">
-                  <Image
-                    src={c.image}
-                    alt={`${c.name}, ${c.role}`}
-                    fill
-                    sizes="(min-width: 1024px) 30vw, 90vw"
-                    className="object-cover object-top"
-                  />
-                </div>
+              <Reveal y={0} className="flex justify-center lg:col-span-4 lg:justify-start">
+                <Image
+                  src={c.image}
+                  alt={`${c.name}, ${c.role}`}
+                  width={c.width}
+                  height={c.height}
+                  sizes="(min-width: 1024px) 30vw, 90vw"
+                  className="h-auto w-full max-w-[360px] lg:h-[58vh] lg:w-auto lg:max-w-none"
+                />
               </Reveal>
 
               <Reveal className="lg:col-span-8" delay={0.1}>
