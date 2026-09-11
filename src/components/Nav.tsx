@@ -32,6 +32,7 @@ export function Nav() {
   const solid = scrolled || open || pathname !== "/";
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         solid ? "border-b border-white/10 bg-ink/85 backdrop-blur-md" : "border-b border-transparent bg-transparent"
@@ -76,9 +77,11 @@ export function Nav() {
         </div>
       </div>
 
+    </header>
+
       {/* Mobile menu */}
       <div
-        className={`fixed inset-x-0 bottom-0 top-20 z-40 bg-ink transition-opacity duration-300 xl:hidden ${
+        className={`fixed inset-x-0 bottom-0 top-20 z-[45] bg-ink transition-opacity duration-300 xl:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -104,6 +107,6 @@ export function Nav() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }
