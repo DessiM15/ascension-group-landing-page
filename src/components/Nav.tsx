@@ -35,10 +35,12 @@ export function Nav() {
     <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        solid ? "border-b border-white/10 bg-ink/85 backdrop-blur-md" : "border-b border-transparent bg-transparent"
+        solid ? "border-b border-white/10 bg-ink md:bg-ink/85 md:backdrop-blur-md" : "border-b border-transparent bg-transparent"
       } ${onHero ? "pointer-events-none -translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
       aria-hidden={onHero}
     >
+      {/* Solid cover above the bar so nothing shows through while mobile browser chrome collapses */}
+      <div aria-hidden="true" className={`absolute inset-x-0 bottom-full h-40 ${solid ? "bg-ink" : "bg-transparent"}`} />
       <div className="container-x flex h-20 items-center justify-between">
         <Link href="/" aria-label={`${site.name} home`} className="flex items-center gap-3">
           <Image src="/logos/logo-gold-mark.png" alt="" width={34} height={37} priority />
