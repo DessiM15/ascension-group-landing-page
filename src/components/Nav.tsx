@@ -34,7 +34,7 @@ export function Nav() {
   return (
     <>
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[transform,opacity,background-color,border-color] duration-500 will-change-transform ${
+      className={`sticky top-0 z-50 -mb-20 h-20 w-full transition-[transform,opacity,background-color,border-color] duration-500 ${
         solid ? "border-b border-white/10 bg-ink md:bg-ink/85 md:backdrop-blur-md" : "border-b border-transparent bg-transparent"
       } ${onHero ? "pointer-events-none -translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
       aria-hidden={onHero}
