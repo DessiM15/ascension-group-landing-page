@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.env*.local
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+# Large client originals stay local (processed web versions live in public/)
+brand-assets/videos/
+brand-assets/photos/*-original.*
+brand-assets/photos/jeff-IMG_*.heic
+brand-assets/photos/jeff-IMG_*.png
+brand-assets/photos/from-deck/
