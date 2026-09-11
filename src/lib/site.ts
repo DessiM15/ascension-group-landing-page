@@ -4,14 +4,14 @@ export const site = {
   tagline: "Developing Athletes Beyond The Game.",
   description:
     "Ascension Athlete Group is a Houston based athlete development company. Elite performance training, career advisory and a talent network that connects athletes with opportunity on and off the field.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://ascensionatheletgroup.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://ascensionathletegroup.com",
   location: {
     city: "Houston",
     region: "TX",
     label: "Houston, Texas",
   },
   contact: {
-    email: "info@ascensionatheletgroup.com",
+    email: "info@ascensionathletegroup.com",
     phone: "(000) 000-0000",
   },
   social: {
