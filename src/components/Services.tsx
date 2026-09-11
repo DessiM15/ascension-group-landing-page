@@ -36,6 +36,7 @@ export function Services() {
                 alt={s.title}
                 fill
                 sizes="(min-width: 768px) 34vw, 100vw"
+                style={{ objectPosition: s.focus ?? "center" }}
                 className="object-cover brightness-[0.45] grayscale transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:brightness-90 group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent transition-opacity duration-700 group-hover:opacity-80" />

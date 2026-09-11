@@ -28,18 +28,20 @@ export function Nav() {
     };
   }, [open]);
 
+  const onHero = pathname === "/" && !scrolled && !open;
   const solid = scrolled || open || pathname !== "/";
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         solid ? "border-b border-white/10 bg-ink/85 backdrop-blur-md" : "border-b border-transparent bg-transparent"
-      }`}
+      } ${onHero ? "pointer-events-none -translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
+      aria-hidden={onHero}
     >
       <div className="container-x flex h-20 items-center justify-between">
         <Link href="/" aria-label={`${site.name} home`} className="flex items-center gap-3">
           <Image src="/logos/logo-gold-mark.png" alt="" width={34} height={37} priority />
-          <span className="font-display hidden text-[11px] uppercase tracking-[0.32em] text-bone sm:inline">
+          <span className="font-display hidden whitespace-nowrap text-[10px] uppercase tracking-[0.28em] text-bone sm:inline">
             Ascension <span className="text-silver-2">Athlete Group</span>
           </span>
         </Link>
@@ -58,7 +60,7 @@ export function Nav() {
 
         <div className="flex items-center gap-4">
           <CtaLink interest="consultation" className="btn btn-gold btn-sm hidden md:inline-flex">
-            Book a Consultation
+            Book Now
           </CtaLink>
           <button
             type="button"

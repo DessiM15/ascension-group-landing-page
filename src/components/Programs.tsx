@@ -17,7 +17,7 @@ export function Programs() {
           <SectionHeader
             eyebrow="Programs"
             title="Choose your level."
-            description="Monthly packages across our Performance and Advisory divisions, from foundation to pro day prep."
+            description="Monthly packages across our Performance and Advisory divisions, from foundation to pro day prep. Reach out for pricing."
           />
           <Reveal delay={0.1}>
             <div role="tablist" aria-label="Program division" className="flex border border-white/15">
@@ -54,7 +54,9 @@ export function Programs() {
                   <span className="font-display text-3xl text-bone">{pkg.price}</span>
                   <span className="text-xs uppercase tracking-[0.2em] text-silver-2">per month</span>
                 </p>
-              ) : null}
+              ) : (
+                <p className="mt-6 font-display text-[10px] uppercase tracking-[0.3em] text-silver-2">Inquire for pricing</p>
+              )}
               <div className="rule-gold my-7" />
               <ul className="space-y-2.5">
                 {pkg.includes.map((item) => (

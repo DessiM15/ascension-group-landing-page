@@ -5,6 +5,7 @@ export type Service = {
   short: string;
   description: string;
   image: string;
+  focus?: string;
   points: string[];
 };
 
@@ -27,6 +28,7 @@ export const services: Service[] = [
     description:
       "Our Advisory Division equips athletes with the resources, relationships and knowledge needed to build successful careers during and after athletics.",
     image: "/images/division-advisory.jpg",
+    focus: "50% 42%",
     points: ["Career development", "Scouting strategy", "Recruiting assistance", "NIL and branding"],
   },
   {
@@ -63,7 +65,7 @@ export const whyChoose = [
 export type Package = { name: string; price: string; level: string; includes: string[]; idealFor: string[] };
 export type Program = { key: string; label: string; note?: string; packages: Package[] };
 
-export const showPricing = true;
+export const showPricing = false;
 
 export const programs: Program[] = [
   {
@@ -180,26 +182,29 @@ export const placements: Placement[] = [
   { team: "San Antonio Toros", logo: "/logos/team-toros.png", athlete: "Eddy Toussum", width: 225, height: 205 },
 ];
 
-export type Testimonial = { name: string; team: string; quote: string };
+export type Testimonial = { name: string; team: string; quote: string; image: string };
 
 export const testimonials: Testimonial[] = [
   {
+    name: "Eddy Toussom",
+    team: "San Antonio Toros",
+    image: "/images/testimonial-eddy.jpg",
+    quote:
+      "Coach K and Coach Jeff have been huge in helping jump start my professional career. From pre-draft training to connecting us with agents and professional teams, they've done everything they can to make sure we get the exposure we've worked so hard for. They've also helped us navigate life outside of sports, whether it's through fellowship, financial advice, or simply being great mentors. These guys truly do it all, and I'm incredibly grateful to have them by my side as I continue chasing my dreams. Thank you both for believing in me and investing in my future!",
+  },
+  {
     name: "Byron Mathis",
     team: "Iowa Barnstormers",
+    image: "/images/testimonial-byron.jpg",
     quote:
       "Training with Coach Jeff and Coach K completely changed my football journey. They helped me develop not only on the field but also off the field by building my confidence, discipline, and work ethic. Their training improved my speed, mobility, athleticism, and overall performance, preparing me to compete at the professional level. Most importantly they opened doors by connecting me with valuable opportunities to play professional football. Thanks to their guidance and support, I earned the opportunity to be recruited by the Iowa Barnstormers in the IFL. I highly recommend Ascension Athlete Group to any athlete chasing their dreams.",
   },
   {
     name: "Xavier Toliver",
     team: "San Antonio Gunslingers",
+    image: "/images/testimonial-xavier.jpg",
     quote:
       "Coach Jeff and Coach K have been a huge part of my journey. They welcomed me in halfway through camp, believed in me, helped me put up great numbers at pro day, and ultimately helped me earn an opportunity to play professional football. Their impact goes far beyond just training. They've supported me physically, mentally, and spiritually, always pushing me to be the best version of myself on and off the field. I'm grateful for everything they've poured into me and for believing in my potential. If you're serious about reaching the next level, these are the coaches you want in your corner.",
-  },
-  {
-    name: "Ravonte Blowe",
-    team: "Iowa Barnstormers",
-    quote:
-      "Working out with them has been about so much more than getting stronger or becoming a better athlete. They've helped shape me into a better person. Jeff and Coach K believed in me even on days when I doubted myself. Their encouragement and guidance helped me realize that growth comes from showing up, staying committed and trusting the process. Because of them I've learned the importance of accountability, perseverance and always giving my best effort. Their impact on my life goes far beyond athletics, and I'll always appreciate everything they've done to help me become not only a stronger athlete but also a stronger person.",
   },
 ];
 
@@ -221,8 +226,8 @@ export const founders: Coach[] = [
     image: "/images/coach-jeff-portrait.jpg",
     short: "Builds the pathway. Opens the doors.",
     bio: [
-      "Jeff founded Ascension Athlete Group on a simple belief: talent gets you the opportunity, and the right team helps you maximize it. He leads the Athlete Advisory division, working directly with athletes to evaluate film, sharpen their scouting profile and connect them with the agents, coaches and organizations that can move their career forward.",
-      "Before Ascension, Jeff spent years around the game at the college and professional levels and saw too many capable athletes fall through the cracks between the end of college and the start of a professional career. Closing that gap is the work he cares most about.",
+      "Jeff founded Ascension Athlete Group on a simple belief: talent gets you the opportunity, and the right team helps you maximize it. He leads the Advisory division, working directly with athletes to evaluate film, sharpen their scouting profile and connect them with the agents, coaches and organizations that can move their career forward.",
+      "Jeff spent years around the game at the college and professional levels and saw too many capable athletes fall through the cracks between college and a professional career. Closing that gap is the work he cares most about.",
     ],
     focus: ["Athlete advisory", "Film evaluation", "Professional placement", "NIL and brand strategy"],
   },
@@ -233,8 +238,8 @@ export const founders: Coach[] = [
     image: "/images/coach-k-portrait.jpg",
     short: "Builds the athlete. Moves the numbers.",
     bio: [
-      "Coach K runs the Performance Training division. His programs are built around the numbers that matter on pro day and the movement that shows up on film: acceleration, change of direction, strength and durability through a full season.",
-      "He is known by his athletes for meeting them where they are and refusing to let them stay there. Athletes who walked in halfway through camp have left with their best testing numbers and a professional contract.",
+      "Coach K runs the Performance division. His programs are built around the numbers that matter on pro day and the movement that shows up on film: acceleration, change of direction, strength and durability through a full season.",
+      "His athletes know him for meeting them where they are and refusing to let them stay there. Athletes who walked in halfway through camp have left with their best testing numbers and a professional contract.",
     ],
     focus: ["Speed and acceleration", "Strength and power", "Pro day preparation", "Position specific movement"],
   },

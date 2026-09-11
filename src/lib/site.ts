@@ -24,7 +24,6 @@ export const site = {
 export const nav = [
   { label: "Divisions", href: "/#services" },
   { label: "Programs", href: "/#programs" },
-  { label: "Results", href: "/#results" },
   { label: "Events", href: "/#events" },
   { label: "Founders", href: "/founders" },
   { label: "Contact", href: "/#contact" },
