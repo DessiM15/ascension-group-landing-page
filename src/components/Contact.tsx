@@ -113,10 +113,6 @@ export function Contact() {
               </dd>
             </div>
             <div>
-              <dt className="eyebrow text-silver-2">Phone</dt>
-              <dd className="mt-2 text-bone">{site.contact.phone}</dd>
-            </div>
-            <div>
               <dt className="eyebrow text-silver-2">Instagram</dt>
               <dd className="mt-2">
                 <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="text-bone transition-colors hover:text-gold">

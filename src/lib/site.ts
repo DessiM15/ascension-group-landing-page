@@ -12,7 +12,6 @@ export const site = {
   },
   contact: {
     email: "info@ascensionathletegroup.com",
-    phone: "(000) 000-0000",
   },
   social: {
     instagram: "https://www.instagram.com/ascensionathletegroup/",

@@ -31,7 +31,6 @@ export function Footer() {
               <li>
                 <a href={`mailto:${site.contact.email}`} className="transition-colors hover:text-gold">{site.contact.email}</a>
               </li>
-              <li>{site.contact.phone}</li>
               <li>{site.location.label}</li>
               <li>
                 <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
