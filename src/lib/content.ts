@@ -27,8 +27,7 @@ export const services: Service[] = [
     short: "Career development beyond sports.",
     description:
       "Our Advisory Division equips athletes with the resources, relationships and knowledge needed to build successful careers during and after athletics.",
-    image: "/images/division-advisory.jpg",
-    focus: "50% 42%",
+    image: "/images/division-network.jpg",
     points: ["Career development", "Scouting strategy", "Recruiting assistance", "NIL and branding"],
   },
   {
@@ -38,7 +37,8 @@ export const services: Service[] = [
     short: "Connecting athletes with opportunity.",
     description:
       "Our Network Division creates meaningful relationships between athletes, agencies, coaches, scouts and organizations. We serve as strategic connectors, not agents.",
-    image: "/images/division-network.jpg",
+    image: "/images/division-advisory.jpg",
+    focus: "50% 42%",
     points: ["Recruiting", "Scouting", "Team placement", "Player personnel", "Referrals"],
   },
 ];
@@ -62,113 +62,102 @@ export const whyChoose = [
   },
 ];
 
-export type Package = { name: string; price: string; level: string; includes: string[]; idealFor: string[] };
-export type Program = { key: string; label: string; note?: string; packages: Package[] };
+export type Package = { name: string; price: string; cadence?: string; includes: string[] };
+export type Program = { key: string; label: string; short: string; description: string; packages: Package[] };
 
 export const showPricing = false;
 
 export const programs: Program[] = [
   {
-    key: "performance",
-    label: "Performance",
-    note: "Private sessions available. Inquire for pricing.",
+    key: "agency",
+    label: "Agency Partnership Packages",
+    short: "Agency",
+    description: "Built for agencies that want a development partner behind their roster, from scouting and evaluation to training and placement.",
     packages: [
       {
-        name: "Ascend",
-        price: "$500",
-        level: "Foundation",
-        includes: ["2x per week performance training", "Speed and movement development", "Strength training", "Accountability mentorship"],
-        idealFor: ["High school athletes", "Developing athletes", "Athletes seeking structure"],
+        name: "Partner",
+        price: "$2,500",
+        cadence: "per month",
+        includes: [
+          "Player development",
+          "Scouting",
+          "Player evaluation",
+          "Recruiting support",
+          "Position coach network",
+          "Recovery network",
+          "Career development resources",
+          "Team/league connections",
+          "Financial/NIL education resources",
+        ],
       },
       {
-        name: "Elevate",
-        price: "$1,200",
-        level: "Mid tier development",
+        name: "Elite Partner",
+        price: "$5,000",
+        cadence: "per month",
         includes: [
-          "3x per week performance training",
-          "Speed and movement development",
-          "Strength training",
-          "1x per week positional coaching",
-          "Accountability mentorship",
-          "Recruiting support",
+          "Everything in Partner Plus:",
+          "Performance Training (Next Level Package - 5 player limit)",
+          "Dedicated athlete development planning",
+          "Scouting/player identification",
+          "Pipeline development",
+          "Team/league outreach",
+          "Player evaluation",
+          "Priority training access",
+          "Network introductions",
+          "Regular agency strategy meetings",
+          "Reporting on athlete development",
         ],
-        idealFor: ["Varsity athletes", "Serious recruits", "Collegiate athletes"],
-      },
-      {
-        name: "Legacy",
-        price: "$1,800",
-        level: "Premium development",
-        includes: [
-          "3x per week performance training",
-          "Speed and movement development",
-          "Strength training",
-          "1x per week positional coaching",
-          "1x per week recovery session",
-          "Accountability mentorship",
-          "Recruiting support",
-        ],
-        idealFor: ["College athletes", "Professional prospects", "Transfer portal athletes"],
-      },
-      {
-        name: "Next Level",
-        price: "$3,000",
-        level: "Pro day prep",
-        includes: [
-          "5x per week performance training",
-          "1x per week positional work",
-          "1x per week recovery",
-          "Combine and pro day prep",
-          "Interview prep",
-          "Nutrition guidance",
-          "Accountability mentorship",
-          "Recruiting support",
-        ],
-        idealFor: ["NFL hopefuls", "CFL and UFL athletes", "Professional free agents"],
       },
     ],
   },
   {
-    key: "advisory",
-    label: "Advisory",
+    key: "professional",
+    label: "Professional Partnership Packages",
+    short: "Professional",
+    description: "For attorneys, advisors, trainers and other professionals who want to serve athletes as part of the Ascension network.",
     packages: [
       {
-        name: "Foundation",
-        price: "$250",
-        level: "Beginner advisory",
-        includes: ["Monthly career strategy session", "Recruiting roadmap", "Film review", "Goal planning", "Email support", "Quarterly recruiting review"],
-        idealFor: ["High school athletes", "Developing athletes", "Athletes seeking structure"],
+        name: "Network",
+        price: "Free",
+        includes: [
+          "Can receive referrals when appropriate",
+          "Gets access to networking opportunities",
+          "Can participate in select Ascension events",
+          "Is listed as part of your professional network",
+        ],
       },
       {
-        name: "Deluxe",
-        price: "$600",
-        level: "Mid tier advisory",
+        name: "Strategic",
+        price: "$1,000",
+        cadence: "per year",
         includes: [
-          "Everything in Foundation",
-          "Bi weekly meetings",
-          "School targeting strategy",
-          "Coach introductions",
-          "Recruiting communication guidance",
-          "Position coach and recovery referrals",
-          "NIL education",
-          "Parent consultation",
+          "Preferred partner status",
+          "Professional profile on Ascension's network",
+          "Networking opportunities",
+          "Athlete education sessions",
+          "Workshops/seminars",
+          "Access to select Ascension events",
+          "Co-branded educational content",
+          "Opportunities to educate athletes",
+          "Priority consideration for referrals",
         ],
-        idealFor: ["Varsity athletes", "Serious recruits", "Collegiate athletes"],
       },
       {
-        name: "Executive",
-        price: "$1,200",
-        level: "Premium advisory",
+        name: "Premier",
+        price: "$2,500",
+        cadence: "per year",
         includes: [
-          "Everything in Deluxe",
-          "Weekly strategy sessions",
-          "Agency introductions and professional networking",
-          "Team placement assistance",
-          "Scouting strategy",
-          "Attorney and mental performance referrals",
-          "Financial literacy and investment education",
-          "Career branding and NIL advisory",
+          "Featured professional partner",
+          "Speaking opportunities",
+          "Athlete workshops",
+          "Co-branded educational events",
+          "Content collaborations",
+          "Networking events",
+          "Priority partnership opportunities",
+          "Access to agency/network events",
+          "Featured placement on Ascension platforms",
+          "Strategic planning meetings with Ascension Athlete Group",
         ],
-        idealFor: ["College athletes", "Professional prospects", "Transfer portal athletes"],
       },
     ],
   },
@@ -208,6 +197,8 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
+export type Fact = { label: string; value: string };
+
 export type Coach = {
   slug: string;
   name: string;
@@ -217,37 +208,45 @@ export type Coach = {
   height: number;
   short: string;
   bio: string[];
-  focus: string[];
+  facts: Fact[];
 };
 
 export const founders: Coach[] = [
   {
-    slug: "coach-jeff",
-    name: "Coach Jeff",
-    role: "Founder and Athlete Advisor",
+    slug: "jeff-ejekam",
+    name: "Jeff Ejekam",
+    role: "Co-Founder and CEO",
     image: "/images/coach-jeff-portrait.jpg",
     width: 1400,
     height: 2100,
     short: "Builds the pathway. Opens the doors.",
     bio: [
-      "Jeff founded Ascension Athlete Group on a simple belief: talent gets you the opportunity, and the right team helps you maximize it. He leads the Advisory division, working directly with athletes to evaluate film, sharpen their scouting profile and connect them with the agents, coaches and organizations that can move their career forward.",
-      "Jeff spent years around the game at the college and professional levels and saw too many capable athletes fall through the cracks between college and a professional career. Closing that gap is the work he cares most about.",
+      "Jeff Ejekam is the Co-Founder & CEO of Ascension Athlete Group, leading the Advisory division. With 23 years of football experience spanning Division I and professional football in the IFL, UFL, and NFL, along with 4 years of sports performance and coaching experience working with multiple NFL Draft prospects, Jeff brings a unique perspective to athlete development. As a West Point graduate and former U.S. Army Captain, he combines his experience in sports, coaching, and military leadership to help athletes maximize their careers and achieve long-term success both on and off the field.",
     ],
-    focus: ["Athlete advisory", "Film evaluation", "Professional placement", "NIL and brand strategy"],
+    facts: [
+      { label: "College", value: "Army West Point" },
+      { label: "Pro experience", value: "Vegas Knight Hawks (2022-2023), Memphis Showboats (2023), San Antonio Gunslingers (2024), Frisco Fighters (2024)" },
+      { label: "NFL workouts", value: "New York Giants, Seattle Seahawks, Buffalo Bills" },
+      { label: "Experience", value: "23 years football experience" },
+    ],
   },
   {
-    slug: "coach-k",
-    name: "Coach K",
-    role: "Co-Founder and Head Performance Coach",
+    slug: "kiante-northington",
+    name: "Kiante Northington",
+    role: "Co-Founder and COO",
     image: "/images/coach-k-portrait.jpg",
     width: 1130,
     height: 1400,
     short: "Builds the athlete. Moves the numbers.",
     bio: [
-      "Coach K runs the Performance division. His programs are built around the numbers that matter on pro day and the movement that shows up on film: acceleration, change of direction, strength and durability through a full season.",
-      "His athletes know him for meeting them where they are and refusing to let them stay there. Athletes who walked in halfway through camp have left with their best testing numbers and a professional contract.",
+      "Kiante Northington is the Co-Founder & COO of Ascension Athlete Group, leading the Sports Performance division. With 25 years of football experience spanning Division I and professional football in the AFL, IFL, and NFL, along with 5 years of coaching experience at the professional and performance levels, Kiante brings a wealth of knowledge to athlete development. He has served as the lead sports performance coach for multiple NFL Draft Class athletes, combining firsthand playing experience with proven coaching expertise to help athletes maximize their physical performance and reach their full potential.",
     ],
-    focus: ["Speed and acceleration", "Strength and power", "Pro day preparation", "Position specific movement"],
+    facts: [
+      { label: "College", value: "Eastern Kentucky University" },
+      { label: "Pro experience", value: "Massachusetts Pirates (2018, 2023), Atlantic City Blackjacks (2019), Jacksonville Sharks (2021), Northern Arizona Wranglers (2022), Bay Area Panthers (2024)" },
+      { label: "NFL workouts", value: "Indianapolis Colts and Cleveland Browns" },
+      { label: "Experience", value: "25 years football experience" },
+    ],
   },
 ];
 
@@ -272,7 +271,9 @@ export const event = {
 
 export type Partner = { name: string; category: string };
 
-// Placeholder partners. Replace with the real professional network once Jeff confirms names and logos.
+// Hidden until Jeff confirms official partners. Flip showPartners to true and replace the placeholders below.
+export const showPartners = false;
+
 export const partners: Partner[] = [
   { name: "Meridian Sports Law", category: "Attorneys" },
   { name: "Northstar Wealth", category: "Financial Advisors" },

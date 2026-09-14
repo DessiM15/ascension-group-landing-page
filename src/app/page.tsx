@@ -9,6 +9,7 @@ import { Events } from "@/components/Events";
 import { Partners } from "@/components/Partners";
 import { FoundersPreview } from "@/components/FoundersPreview";
 import { Contact } from "@/components/Contact";
+import { showPartners } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -22,7 +23,7 @@ export default function HomePage() {
       <Testimonials />
       <Events />
       <FoundersPreview />
-      <Partners />
+      {showPartners ? <Partners /> : null}
       <Contact />
     </>
   );

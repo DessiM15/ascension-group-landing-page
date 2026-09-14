@@ -11,6 +11,8 @@ const interests = [
   { value: "performance", label: "Performance training" },
   { value: "advisory", label: "Athlete advisory" },
   { value: "both", label: "Performance and advisory" },
+  { value: "agency", label: "Partner as an agency" },
+  { value: "professional", label: "Partner as a professional" },
   { value: "event", label: "Upcoming event" },
   { value: "other", label: "Something else" },
 ];
@@ -19,6 +21,8 @@ function mapInterest(raw: string): string {
   const v = raw.toLowerCase();
   if (v.includes("consult")) return "consultation";
   if (v.includes("event")) return "event";
+  if (v.includes("agency")) return "agency";
+  if (v.includes("professional partnership")) return "professional";
   if (v.includes("advisory")) return "advisory";
   if (v.includes("performance")) return "performance";
   if (v.includes("film") || v.includes("pathway") || v.includes("service")) return "both";
@@ -56,7 +60,7 @@ export function Contact() {
     setStatus("sending");
 
     if (!site.web3formsKey) {
-      // Demo mode until the Web3Forms key is added to .env.local
+      // Demo mode when no Web3Forms key is configured
       await new Promise((r) => setTimeout(r, 900));
       setStatus("success");
       form.reset();
@@ -166,6 +170,7 @@ export function Contact() {
                     <option>College</option>
                     <option>Professional</option>
                     <option>Parent or guardian</option>
+                    <option>Agency or professional partner</option>
                   </select>
                   <Chevron />
                 </div>

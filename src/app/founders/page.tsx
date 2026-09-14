@@ -7,7 +7,7 @@ import { CtaLink } from "@/components/CtaLink";
 
 export const metadata: Metadata = {
   title: "Meet the Founders",
-  description: `Meet the founders of ${site.name}: the performance coach and athlete advisor behind Houston athletes signing professional contracts.`,
+  description: `Meet the founders of ${site.name}: Jeff Ejekam and Kiante Northington, the CEO and COO behind Houston athletes signing professional contracts.`,
   alternates: { canonical: "/founders" },
   openGraph: { title: `Meet the Founders | ${site.name}`, images: ["/images/og-founders.jpg"] },
 };
@@ -60,17 +60,17 @@ export default function FoundersPage() {
                     <p key={j}>{p}</p>
                   ))}
                 </div>
-                <div className="mt-7">
-                  <p className="eyebrow text-silver-2">Focus</p>
-                  <ul className="mt-3 grid gap-x-8 gap-y-2 sm:grid-cols-2">
-                    {c.focus.map((f) => (
-                      <li key={f} className="flex items-center gap-3 text-sm text-bone">
-                        <span className="h-px w-5 bg-gold" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <dl className="mt-7 max-w-2xl space-y-3">
+                  {c.facts.map((f) => (
+                    <div key={f.label} className="flex gap-3 text-sm leading-snug">
+                      <span className="mt-2.5 h-px w-5 shrink-0 bg-gold" />
+                      <div>
+                        <dt className="inline font-semibold uppercase tracking-[0.08em] text-bone">{f.label}: </dt>
+                        <dd className="inline text-silver">{f.value}</dd>
+                      </div>
+                    </div>
+                  ))}
+                </dl>
               </Reveal>
             </div>
           </div>

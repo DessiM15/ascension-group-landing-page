@@ -18,12 +18,13 @@ export const site = {
     instagram: "https://www.instagram.com/ascensionathletegroup/",
     instagramHandle: "@ascensionathletegroup",
   },
-  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "",
+  // Web3Forms access keys are public client-side keys, so a committed fallback is safe. An env var still overrides it.
+  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "59f9f9a8-2ed4-4606-8d3d-b55d02a82f65",
 };
 
 export const nav = [
   { label: "Divisions", href: "/#services" },
-  { label: "Programs", href: "/#programs" },
+  { label: "Partnerships", href: "/#partnerships" },
   { label: "Events", href: "/#events" },
   { label: "Founders", href: "/founders" },
   { label: "Contact", href: "/#contact" },
