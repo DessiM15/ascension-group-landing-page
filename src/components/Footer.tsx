@@ -45,6 +45,12 @@ export function Footer() {
           <p className="font-display text-[9px] uppercase tracking-[0.3em] text-silver-2">{site.tagline}</p>
           <p className="text-xs text-silver-2">&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>
         </div>
+        <p className="mt-6 text-center text-xs text-silver-2 md:text-left">
+          This website was built by{" "}
+          <a href="https://smartscaleagent.com/" target="_blank" rel="noopener noreferrer" className="text-silver transition-colors hover:text-gold">
+            Smart Scale, LLC
+          </a>
+        </p>
       </div>
     </footer>
   );
