@@ -35,26 +35,16 @@ export function Testimonials() {
           <h2 className="h-display mt-5 text-[clamp(1.5rem,3vw,2.4rem)]">In their words.</h2>
         </div>
         <div className="flex items-center gap-6">
-          <span className="font-display text-[11px] tracking-[0.3em] text-silver-2">
+          <span className="font-display text-[11px] tracking-[0.3em] text-silver-2" aria-live="polite" aria-atomic="true">
             0{index + 1} <span className="mx-1 text-white/30">/</span> 0{testimonials.length}
           </span>
-          <div className="flex">
-            <button
-              type="button"
-              onClick={() => go(-1)}
-              aria-label="Previous testimonial"
-              className="flex h-12 w-12 items-center justify-center border border-white/20 text-bone transition-colors hover:border-gold hover:text-gold"
-            >
+          <div className="flex" onFocus={() => setPaused(true)} onBlur={() => setPaused(false)}>
+            <button type="button" onClick={() => go(-1)} aria-label="Previous testimonial" className="icon-btn">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.2" />
               </svg>
             </button>
-            <button
-              type="button"
-              onClick={() => go(1)}
-              aria-label="Next testimonial"
-              className="-ml-px flex h-12 w-12 items-center justify-center border border-white/20 text-bone transition-colors hover:border-gold hover:text-gold"
-            >
+            <button type="button" onClick={() => go(1)} aria-label="Next testimonial" className="icon-btn -ml-px">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.2" />
               </svg>
@@ -76,7 +66,7 @@ export function Testimonials() {
             <div className="relative aspect-square w-full lg:col-span-5">
               <Image
                 src={t.image}
-                alt={`${t.name} testimonial graphic`}
+                alt=""
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"

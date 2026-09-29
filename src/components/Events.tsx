@@ -42,10 +42,10 @@ export function Events() {
             <p className="mt-6 text-sm text-silver-2">For: {event.audience}.</p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <CtaLink interest={`event: ${event.title}`} className="btn btn-gold">
+              <CtaLink className="btn btn-gold">
                 Register Now
               </CtaLink>
-              <CtaLink interest={`question about ${event.title}`} className="btn btn-outline">
+              <CtaLink className="btn btn-outline">
                 Ask a question
               </CtaLink>
             </div>

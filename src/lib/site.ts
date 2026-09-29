@@ -17,13 +17,17 @@ export const site = {
     instagram: "https://www.instagram.com/ascensionathletegroup/",
     instagramHandle: "@ascensionathletegroup",
   },
-  // Web3Forms access keys are public client-side keys, so a committed fallback is safe. An env var still overrides it.
-  web3formsKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "59f9f9a8-2ed4-4606-8d3d-b55d02a82f65",
+  // The client's Google Form. Responses land in Jeff's Google account, not on this site.
+  intakeForm: {
+    title: "Ascension Athlete Group Assessment and Intake Form",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSd74Z_Az1un7-CKPiRbC3t_6UCV6ZG682cxfBLcFi1DGUrkrg/viewform",
+    embedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd74Z_Az1un7-CKPiRbC3t_6UCV6ZG682cxfBLcFi1DGUrkrg/viewform?embedded=true",
+  },
 };
 
 export const nav = [
   { label: "Divisions", href: "/#services" },
-  { label: "Partnerships", href: "/#partnerships" },
+  { label: "Packages", href: "/#packages" },
   { label: "Events", href: "/#events" },
   { label: "Founders", href: "/founders" },
   { label: "Contact", href: "/#contact" },

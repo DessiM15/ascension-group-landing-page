@@ -14,7 +14,7 @@ export function Services() {
           description="Elite performance training, career advisory and a talent network. We do not simply train athletes. We help build careers."
         />
         <Reveal delay={0.1}>
-          <CtaLink interest="services" className="btn btn-outline">
+          <CtaLink className="btn btn-outline">
             Enquire about training
           </CtaLink>
         </Reveal>
@@ -25,8 +25,9 @@ export function Services() {
           {services.map((s, i) => (
             <CtaLink
               key={s.index}
-              interest={s.title}
-              ariaLabel={`${s.title}: enquire`}
+              href={s.packages ? "/#packages" : "/#contact"}
+              tab={s.packages}
+              ariaLabel={s.packages ? `${s.title}: view packages` : `${s.title}: enquire`}
               className={`group relative block aspect-[4/5] overflow-hidden border-white/10 md:aspect-auto md:h-[76vh] md:min-h-[560px] ${
                 i < services.length - 1 ? "border-b md:border-b-0 md:border-r" : ""
               }`}
@@ -62,7 +63,7 @@ export function Services() {
                   </div>
                 </div>
                 <span className="eyebrow mt-6 inline-flex items-center gap-3 text-bone transition-colors group-hover:text-gold">
-                  Enquire <span className="block h-px w-8 bg-current transition-all group-hover:w-12" />
+                  {s.packages ? "View packages" : "Enquire"} <span className="block h-px w-8 bg-current transition-all group-hover:w-12" aria-hidden="true" />
                 </span>
               </div>
             </CtaLink>

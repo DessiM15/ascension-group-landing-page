@@ -18,7 +18,7 @@ export function FoundersPreview() {
         </Reveal>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-px border border-white/10 bg-white/10">
+      <div className="mt-8 grid grid-cols-1 gap-px border border-white/10 bg-white/10 min-[400px]:grid-cols-2">
         {founders.map((c, i) => (
           <Reveal key={c.slug} delay={i * 0.1} className="group bg-ink">
             <Link href={`/founders#${c.slug}`} className="flex h-full flex-col gap-4 p-4 sm:p-6 lg:flex-row lg:items-end lg:gap-8 lg:p-8">

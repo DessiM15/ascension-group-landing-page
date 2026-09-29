@@ -18,6 +18,7 @@ const CLIP_MS = 6500;
 export function Hero() {
   const [active, setActive] = useState(0);
   const [portrait, setPortrait] = useState(false);
+  const [playing, setPlaying] = useState(true);
   const refs = useRef<(HTMLVideoElement | null)[]>([]);
   const reduce = useReducedMotion();
 
@@ -30,21 +31,28 @@ export function Hero() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
+  // Videos stay paused for visitors who asked for reduced motion or pressed the pause control.
+  const motionOn = !reduce && playing;
+
   useEffect(() => {
-    if (reduce) return;
+    if (!motionOn) return;
     const id = window.setInterval(() => setActive((a) => (a + 1) % clips.length), CLIP_MS);
     return () => window.clearInterval(id);
-  }, [reduce]);
+  }, [motionOn]);
 
   useEffect(() => {
     const v = refs.current[active];
     if (!v) return;
     try {
+      if (!motionOn) {
+        refs.current.forEach((el) => el?.pause());
+        return;
+      }
       v.currentTime = 0;
       const p = v.play();
       if (p && typeof p.catch === "function") p.catch(() => {});
     } catch {}
-  }, [active]);
+  }, [active, motionOn]);
 
   return (
     <section className="relative flex h-[100svh] min-h-[640px] items-center justify-center overflow-hidden bg-ink" aria-label="Introduction">
@@ -59,7 +67,7 @@ export function Hero() {
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1600ms] ease-out ${
               i === active ? "opacity-100" : "opacity-0"
             }`}
-            autoPlay
+            autoPlay={!reduce}
             muted
             loop
             playsInline
@@ -144,7 +152,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.9 }}
         >
-          <CtaLink interest="consultation" className="btn btn-gold">
+          <CtaLink className="btn btn-gold">
             Book a Consultation
           </CtaLink>
           <CtaLink href="/#services" className="btn btn-outline">
@@ -155,25 +163,44 @@ export function Hero() {
 
       {/* Bottom strip */}
       <div className="container-x absolute inset-x-0 bottom-8 z-10 flex items-end justify-between">
-        <div className="flex items-center gap-3" aria-hidden="true">
-          {clips.map((c, i) => (
-            <button
-              key={c.src}
-              type="button"
-              tabIndex={-1}
-              onClick={() => setActive(i)}
-              className="group relative h-6 w-8 sm:w-12"
-            >
-              <span className="absolute inset-x-0 top-1/2 h-px bg-white/25" />
-              <span
-                className={`absolute inset-x-0 top-1/2 h-px origin-left bg-gold transition-transform ease-linear ${
-                  i === active ? "scale-x-100" : "scale-x-0"
-                }`}
-                style={{ transitionDuration: i === active && !reduce ? `${CLIP_MS}ms` : "0ms" }}
-              />
-            </button>
-          ))}
-          <span className="eyebrow ml-2 text-silver-2">0{active + 1} / 0{clips.length}</span>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setPlaying((p) => !p)}
+            aria-label={playing ? "Pause background video" : "Play background video"}
+            className="icon-btn mr-2 h-11 w-11 border-white/25 bg-black/30"
+          >
+            {playing ? (
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                <rect x="2" y="1" width="3" height="10" />
+                <rect x="7" y="1" width="3" height="10" />
+              </svg>
+            ) : (
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                <path d="M3 1l8 5-8 5z" />
+              </svg>
+            )}
+          </button>
+          <div className="flex items-center gap-3" aria-hidden="true">
+            {clips.map((c, i) => (
+              <button
+                key={c.src}
+                type="button"
+                tabIndex={-1}
+                onClick={() => setActive(i)}
+                className="group relative h-6 w-8 sm:w-12"
+              >
+                <span className="absolute inset-x-0 top-1/2 h-px bg-white/25" />
+                <span
+                  className={`absolute inset-x-0 top-1/2 h-px origin-left bg-gold transition-transform ease-linear ${
+                    i === active ? "scale-x-100" : "scale-x-0"
+                  }`}
+                  style={{ transitionDuration: i === active && motionOn ? `${CLIP_MS}ms` : "0ms" }}
+                />
+              </button>
+            ))}
+            <span className="eyebrow ml-2 text-silver-2">0{active + 1} / 0{clips.length}</span>
+          </div>
         </div>
         <a href="#about" className="eyebrow hidden items-center gap-3 text-silver-2 transition-colors hover:text-gold sm:flex">
           Scroll

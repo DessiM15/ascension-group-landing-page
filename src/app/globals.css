@@ -35,6 +35,8 @@
   }
   ::selection { background: var(--color-gold); color: #000; }
   img, video { display: block; }
+  :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+  main:focus { outline: none; }
 
   /* Film grain over the whole page */
   body::after {
@@ -72,7 +74,7 @@
   .rule-gold { height: 1px; background: color-mix(in srgb, var(--color-gold) 35%, transparent); }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-3 px-7 py-4 uppercase transition-all duration-300 select-none whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-3 px-7 py-4 text-center uppercase transition-all duration-300 select-none;
     font-family: var(--font-display);
     font-size: 0.6875rem;
     letter-spacing: 0.3em;
@@ -80,24 +82,47 @@
   }
   .btn-gold { background: var(--color-gold); color: #0a0a0a; border: 1px solid var(--color-gold); }
   .btn-gold:hover { background: var(--color-gold-2); border-color: var(--color-gold-2); }
+  .btn-gold:focus-visible { outline-color: var(--color-bone); }
   .btn-outline { color: var(--color-bone); border: 1px solid rgba(242, 239, 232, 0.35); background: transparent; }
   .btn-outline:hover { border-color: var(--color-gold); color: var(--color-gold); }
   .btn-sm { @apply px-5 py-3; font-size: 0.625rem; }
+  /* Keep the widest label ("Book a Consultation") under 280px on the narrowest phones so nothing scrolls sideways at 320px. */
+  @media (max-width: 380px) {
+    .btn { letter-spacing: 0.18em; padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+
+  .skip-link {
+    position: absolute; left: 1rem; top: 1rem; z-index: 100;
+    transform: translateY(-200%);
+    background: var(--color-gold); color: #0a0a0a;
+    padding: 0.75rem 1.25rem; font-family: var(--font-display);
+    font-size: 0.6875rem; letter-spacing: 0.3em; text-transform: uppercase;
+  }
+  .skip-link:focus { transform: none; outline: 2px solid var(--color-bone); outline-offset: 2px; }
+
+  .icon-btn {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center border border-white/20 text-bone transition-colors hover:border-gold hover:text-gold;
+  }
 
   .field {
-    @apply w-full bg-transparent px-0 py-3 text-bone placeholder:text-silver-2 outline-none transition-colors;
+    @apply w-full bg-transparent px-0 py-3 text-bone placeholder:text-silver-2 transition-colors;
     border: 0;
     border-bottom: 1px solid rgba(242, 239, 232, 0.22);
     font-size: 0.9375rem;
   }
-  .field:focus { border-bottom-color: var(--color-gold); }
+  .field:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+    border-bottom-color: var(--color-gold);
+  }
   select.field { appearance: none; -webkit-appearance: none; }
   select.field option { background: #0d0d0d; color: #f2efe8; }
   .label { @apply mb-1 block; font-family: var(--font-display); font-size: 0.5625rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-silver-2); }
 
   .marquee-track { display: flex; width: max-content; animation: var(--animate-marquee); }
   .marquee-track.slow { animation: var(--animate-marquee-slow); }
-  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee:hover .marquee-track,
+  .marquee[data-paused="true"] .marquee-track { animation-play-state: paused; }
 }
 
 @media (prefers-reduced-motion: reduce) {

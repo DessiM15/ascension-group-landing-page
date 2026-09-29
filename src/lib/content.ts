@@ -6,6 +6,8 @@ export type Service = {
   description: string;
   image: string;
   focus?: string;
+  /** Key of the tab in the Packages section this division links to. */
+  packages?: string;
   points: string[];
 };
 
@@ -18,6 +20,7 @@ export const services: Service[] = [
     description:
       "Our Performance Division prepares athletes to compete at the highest level through science based training and sport specific development.",
     image: "/images/division-performance.jpg",
+    packages: "performance",
     points: ["Strength training", "Speed and agility", "Position development", "Mobility and recovery", "Character development"],
   },
   {
@@ -28,6 +31,7 @@ export const services: Service[] = [
     description:
       "Our Advisory Division equips athletes with the resources, relationships and knowledge needed to build successful careers during and after athletics.",
     image: "/images/division-network.jpg",
+    packages: "advisory",
     points: ["Career development", "Scouting strategy", "Recruiting assistance", "NIL and branding"],
   },
   {
@@ -62,58 +66,140 @@ export const whyChoose = [
   },
 ];
 
-export type Package = { name: string; price: string; cadence?: string; includes: string[] };
-export type Program = { key: string; label: string; short: string; description: string; packages: Package[] };
+export type Package = { name: string; price: string; cadence?: string; tier?: string; includes: string[]; ideal?: string[] };
+export type Program = { key: string; label: string; short: string; description: string; note?: string; packages: Package[] };
 
 export const showPricing = false;
 
 export const programs: Program[] = [
   {
-    key: "agency",
-    label: "Agency Partnership Packages",
-    short: "Agency",
-    description: "Built for agencies that want a development partner behind their roster, from scouting and evaluation to training and placement.",
+    key: "performance",
+    label: "Performance Packages",
+    short: "Performance",
+    description: "Sports performance training in Houston, from a first structured program to full pro day preparation. Every package includes accountability mentorship.",
+    note: "Private sessions available. Please inquire for pricing.",
     packages: [
       {
-        name: "Partner",
-        price: "$2,500",
+        name: "Ascend",
+        price: "$500",
         cadence: "per month",
-        includes: [
-          "Player development",
-          "Scouting",
-          "Player evaluation",
-          "Recruiting support",
-          "Position coach network",
-          "Recovery network",
-          "Career development resources",
-          "Team/league connections",
-          "Financial/NIL education resources",
-        ],
+        tier: "Beginner and foundation",
+        includes: ["2x per week performance training", "Speed and movement development", "Strength training", "Accountability mentorship"],
+        ideal: ["High school athletes", "Developing athletes", "Athletes seeking structure"],
       },
       {
-        name: "Elite Partner",
-        price: "$5,000",
+        name: "Elevate",
+        price: "$1,200",
         cadence: "per month",
+        tier: "Mid-tier development",
         includes: [
-          "Everything in Partner Plus:",
-          "Performance Training (Next Level Package - 5 player limit)",
-          "Dedicated athlete development planning",
-          "Scouting/player identification",
-          "Pipeline development",
-          "Team/league outreach",
-          "Player evaluation",
-          "Priority training access",
-          "Network introductions",
-          "Regular agency strategy meetings",
-          "Reporting on athlete development",
+          "3x per week performance training",
+          "Speed and movement development",
+          "Strength training",
+          "1x per week positional coaching",
+          "Accountability mentorship",
+          "Recruiting support",
         ],
+        ideal: ["Varsity athletes", "Serious recruits", "Collegiate athletes"],
+      },
+      {
+        name: "Legacy",
+        price: "$1,800",
+        cadence: "per month",
+        tier: "Premium development",
+        includes: [
+          "3x per week performance training",
+          "Speed and movement development",
+          "Strength training",
+          "1x per week positional coaching",
+          "1x per week recovery session",
+          "Accountability mentorship",
+          "Recruiting support",
+        ],
+        ideal: ["College athletes", "Professional prospects", "Transfer portal athletes", "High-level athletes"],
+      },
+      {
+        name: "Next Level",
+        price: "$3,000",
+        cadence: "per month",
+        tier: "Pro day prep",
+        includes: [
+          "5x per week performance training",
+          "1x per week positional work",
+          "1x per week recovery",
+          "Combine and pro day prep",
+          "Interview prep",
+          "Nutrition guidance",
+          "Accountability mentorship",
+          "Recruiting support",
+        ],
+        ideal: ["NFL hopefuls", "CFL and UFL athletes", "Transfer portal athletes", "Professional free agents"],
+      },
+    ],
+  },
+  {
+    key: "advisory",
+    label: "Advisory Packages",
+    short: "Advisory",
+    description: "Career strategy, recruiting and opportunity development for athletes who want a plan and a team behind it, from a single film review to a full advisory relationship.",
+    packages: [
+      {
+        name: "Evaluation",
+        price: "$100",
+        cadence: "one-time fee",
+        tier: "Athlete assessment",
+        includes: ["Film review and performance feedback"],
+        ideal: ["Baseline assessment for athletes"],
+      },
+      {
+        name: "Foundation",
+        price: "$250",
+        cadence: "per month",
+        tier: "Beginner advisory",
+        includes: ["Film review and performance feedback", "Career and recruiting goal planning", "Communication and outreach guidance"],
+        ideal: ["High school athletes", "Developing athletes", "Athletes seeking structure"],
+      },
+      {
+        name: "Deluxe",
+        price: "$600",
+        cadence: "per month",
+        tier: "Mid-tier advisory",
+        includes: [
+          "Everything in Foundation, plus:",
+          "Coach and team outreach",
+          "Film and athlete profile distribution",
+          "Recruiting and opportunity tracking",
+          "Position and performance referrals",
+          "NIL and career development",
+          "Family and team support as needed",
+        ],
+        ideal: ["Varsity athletes", "Serious recruits", "Collegiate athletes", "Free agent athletes"],
+      },
+      {
+        name: "Executive",
+        price: "$1,200",
+        cadence: "per month",
+        tier: "Premium advisory",
+        includes: [
+          "Everything in Deluxe, plus:",
+          "Individualized outreach",
+          "Personalized athlete campaigns",
+          "Direct coach and team introductions",
+          "Agency introductions",
+          "Team placement assistance",
+          "Professional networking",
+          "Career branding and positioning",
+          "Financial and investment education",
+          "Off-field career development",
+        ],
+        ideal: ["College athletes", "Professional prospects", "Transfer portal athletes", "High-level athletes"],
       },
     ],
   },
   {
     key: "professional",
-    label: "Professional Partnership Packages",
-    short: "Professional",
+    label: "Professional Partner Packages",
+    short: "Partners",
     description: "For attorneys, advisors, trainers and other professionals who want to serve athletes as part of the Ascension network.",
     packages: [
       {
@@ -128,14 +214,14 @@ export const programs: Program[] = [
       },
       {
         name: "Strategic",
-        price: "$1,000",
+        price: "$2,500",
         cadence: "per year",
         includes: [
           "Preferred partner status",
           "Professional profile on Ascension's network",
           "Networking opportunities",
           "Athlete education sessions",
-          "Workshops/seminars",
+          "Workshops and seminars",
           "Access to select Ascension events",
           "Co-branded educational content",
           "Opportunities to educate athletes",
@@ -144,7 +230,7 @@ export const programs: Program[] = [
       },
       {
         name: "Premier",
-        price: "$2,500",
+        price: "$5,000",
         cadence: "per year",
         includes: [
           "Featured professional partner",
@@ -154,7 +240,7 @@ export const programs: Program[] = [
           "Content collaborations",
           "Networking events",
           "Priority partnership opportunities",
-          "Access to agency/network events",
+          "Access to agency and network events",
           "Featured placement on Ascension platforms",
           "Strategic planning meetings with Ascension Athlete Group",
         ],

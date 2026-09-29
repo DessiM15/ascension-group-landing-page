@@ -5,25 +5,28 @@ import type { ReactNode } from "react";
 
 type Props = {
   href?: string;
-  interest?: string;
+  /** Preselects a tab in the Packages section when the link lands on /#packages. */
+  tab?: string;
   className?: string;
   children: ReactNode;
   ariaLabel?: string;
 };
 
-/** Link to the contact form that also records what the visitor is interested in. */
-export function CtaLink({ href = "/#contact", interest, className, children, ariaLabel }: Props) {
+export const TAB_EVENT = "aag:tab";
+export const TAB_KEY = "aag:tab";
+
+export function CtaLink({ href = "/#contact", tab, className, children, ariaLabel }: Props) {
   return (
     <Link
       href={href}
       className={className}
       aria-label={ariaLabel}
       onClick={() => {
-        if (!interest) return;
+        if (!tab) return;
         try {
-          sessionStorage.setItem("aag:interest", interest);
+          sessionStorage.setItem(TAB_KEY, tab);
         } catch {}
-        window.dispatchEvent(new CustomEvent("aag:interest", { detail: interest }));
+        window.dispatchEvent(new CustomEvent(TAB_EVENT, { detail: tab }));
       }}
     >
       {children}

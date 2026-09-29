@@ -15,7 +15,7 @@ export function Footer() {
           <div className="md:col-span-3">
             <p className="eyebrow">Explore</p>
             <ul className="mt-6 space-y-3">
-              {nav.map((item) => (
+              {[...nav, { label: "Accessibility", href: "/accessibility" }].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="font-display text-[10px] uppercase tracking-[0.3em] text-silver transition-colors hover:text-gold">
                     {item.label}
@@ -35,6 +35,7 @@ export function Footer() {
               <li>
                 <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">
                   Instagram {site.social.instagramHandle}
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
               </li>
             </ul>
@@ -47,8 +48,13 @@ export function Footer() {
         </div>
         <p className="mt-6 text-center text-xs text-silver-2 md:text-left">
           This website was built by{" "}
-          <a href="https://smartscaleagent.com/" target="_blank" rel="noopener noreferrer" className="text-silver transition-colors hover:text-gold">
-            Smart Scale, LLC
+          <a
+            href="https://smartscaleagent.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-silver underline decoration-gold/70 decoration-1 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold"
+          >
+            Smart Scale, LLC<span className="sr-only"> (opens in new tab)</span>
           </a>
         </p>
       </div>

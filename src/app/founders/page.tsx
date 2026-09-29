@@ -62,12 +62,9 @@ export default function FoundersPage() {
                 </div>
                 <dl className="mt-7 max-w-2xl space-y-3">
                   {c.facts.map((f) => (
-                    <div key={f.label} className="flex gap-3 text-sm leading-snug">
-                      <span className="mt-2.5 h-px w-5 shrink-0 bg-gold" />
-                      <div>
-                        <dt className="inline font-semibold uppercase tracking-[0.08em] text-bone">{f.label}: </dt>
-                        <dd className="inline text-silver">{f.value}</dd>
-                      </div>
+                    <div key={f.label} className="relative pl-8 text-sm leading-snug before:absolute before:left-0 before:top-2.5 before:h-px before:w-5 before:bg-gold">
+                      <dt className="inline font-semibold uppercase tracking-[0.08em] text-bone">{f.label}: </dt>
+                      <dd className="inline text-silver">{f.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -84,7 +81,7 @@ export default function FoundersPage() {
             <h2 className="h-display mt-5 text-[clamp(1.5rem,3.4vw,2.75rem)]">Ready for the next level?</h2>
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col gap-3 sm:flex-row">
-            <CtaLink interest="consultation" className="btn btn-gold">Book a Consultation</CtaLink>
+            <CtaLink className="btn btn-gold">Book a Consultation</CtaLink>
             <CtaLink href="/#services" className="btn btn-outline">Explore Services</CtaLink>
           </Reveal>
         </div>
