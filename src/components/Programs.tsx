@@ -128,7 +128,7 @@ export function Programs() {
                   </>
                 ) : null}
                 <div className="mt-auto pt-8">
-                  <CtaLink className="btn btn-outline w-full">Enquire</CtaLink>
+                  <CtaLink className="btn btn-outline w-full">Inquire</CtaLink>
                 </div>
               </Reveal>
             ))}

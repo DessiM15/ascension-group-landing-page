@@ -15,7 +15,7 @@ export function Services() {
         />
         <Reveal delay={0.1}>
           <CtaLink className="btn btn-outline">
-            Enquire about training
+            Inquire about training
           </CtaLink>
         </Reveal>
       </div>
@@ -27,7 +27,7 @@ export function Services() {
               key={s.index}
               href={s.packages ? "/#packages" : "/#contact"}
               tab={s.packages}
-              ariaLabel={s.packages ? `${s.title}: view packages` : `${s.title}: enquire`}
+              ariaLabel={s.packages ? `${s.title}: view packages` : `${s.title}: inquire`}
               className={`group relative block aspect-[4/5] overflow-hidden border-white/10 md:aspect-auto md:h-[76vh] md:min-h-[560px] ${
                 i < services.length - 1 ? "border-b md:border-b-0 md:border-r" : ""
               }`}
@@ -63,7 +63,7 @@ export function Services() {
                   </div>
                 </div>
                 <span className="eyebrow mt-6 inline-flex items-center gap-3 text-bone transition-colors group-hover:text-gold">
-                  {s.packages ? "View packages" : "Enquire"} <span className="block h-px w-8 bg-current transition-all group-hover:w-12" aria-hidden="true" />
+                  {s.packages ? "View packages" : "Inquire"} <span className="block h-px w-8 bg-current transition-all group-hover:w-12" aria-hidden="true" />
                 </span>
               </div>
             </CtaLink>
