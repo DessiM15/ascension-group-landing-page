@@ -28,9 +28,11 @@ export function Footer() {
           <div className="md:col-span-4">
             <p className="eyebrow">Contact</p>
             <ul className="mt-6 space-y-3 text-sm text-silver">
-              <li>
-                <a href={`mailto:${site.contact.email}`} className="transition-colors hover:text-gold">{site.contact.email}</a>
-              </li>
+              {site.contact.email ? (
+                <li>
+                  <a href={`mailto:${site.contact.email}`} className="transition-colors hover:text-gold">{site.contact.email}</a>
+                </li>
+              ) : null}
               <li>{site.location.label}</li>
               <li>
                 <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold">

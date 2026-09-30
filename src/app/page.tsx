@@ -5,7 +5,6 @@ import { Services } from "@/components/Services";
 import { Programs } from "@/components/Programs";
 import { Placements } from "@/components/Placements";
 import { Testimonials } from "@/components/Testimonials";
-import { Events } from "@/components/Events";
 import { Partners } from "@/components/Partners";
 import { FoundersPreview } from "@/components/FoundersPreview";
 import { Contact } from "@/components/Contact";
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Programs />
       <Placements />
       <Testimonials />
-      <Events />
       <FoundersPreview />
       {showPartners ? <Partners /> : null}
       <Contact />

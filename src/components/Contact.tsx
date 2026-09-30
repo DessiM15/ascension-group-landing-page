@@ -18,14 +18,16 @@ export function Contact() {
           </p>
 
           <dl className="mt-12 space-y-7">
-            <div>
-              <dt className="eyebrow text-silver-2">Email</dt>
-              <dd className="mt-2">
-                <a href={`mailto:${site.contact.email}`} className="text-bone transition-colors hover:text-gold">
-                  {site.contact.email}
-                </a>
-              </dd>
-            </div>
+            {site.contact.email ? (
+              <div>
+                <dt className="eyebrow text-silver-2">Email</dt>
+                <dd className="mt-2">
+                  <a href={`mailto:${site.contact.email}`} className="text-bone transition-colors hover:text-gold">
+                    {site.contact.email}
+                  </a>
+                </dd>
+              </div>
+            ) : null}
             <div>
               <dt className="eyebrow text-silver-2">Instagram</dt>
               <dd className="mt-2">

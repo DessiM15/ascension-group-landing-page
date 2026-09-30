@@ -15,7 +15,9 @@ var CONFIG = {
 
   // How the email appears in the athlete's inbox.
   fromName: "Ascension Athlete Group",
-  replyTo: "info@ascensionathletegroup.com",
+  // Leave empty until the professional email exists. Replies then go to the Google
+  // account that owns the form. Once the address is set up, put it here.
+  replyTo: "",
   subject: "We received your intake form",
   websiteUrl: "https://ascensionathletegroup.com",
   instagramUrl: "https://www.instagram.com/ascensionathletegroup/",
@@ -33,10 +35,17 @@ function onFormSubmit(e) {
   var name = String(findAnswer(answers, CONFIG.nameQuestion) || "").trim();
   var firstName = name.split(/\s+/)[0] || "there";
 
+  var reachText = CONFIG.replyTo
+    ? "In the meantime, you can reach us by replying to this email or at " + CONFIG.replyTo + "."
+    : "In the meantime, you can reach us by replying to this email.";
+  var reachHtml = CONFIG.replyTo
+    ? "In the meantime, you can reach us by replying to this email or at <a href=\"mailto:" + CONFIG.replyTo + "\">" + CONFIG.replyTo + "</a>."
+    : "In the meantime, you can reach us by replying to this email.";
+
   var text =
     "Hi " + firstName + ",\n\n" +
     "Thank you for submitting your Assessment and Intake Form to Ascension Athlete Group. We received it and someone from our team will be in touch with you as soon as possible.\n\n" +
-    "In the meantime, you can reach us by replying to this email or at " + CONFIG.replyTo + ".\n\n" +
+    reachText + "\n\n" +
     "Developing Athletes Beyond The Game.\n" +
     "Ascension Athlete Group\n" +
     CONFIG.websiteUrl + "\n" +
@@ -46,21 +55,23 @@ function onFormSubmit(e) {
     '<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#111;max-width:560px">' +
     "<p>Hi " + escapeHtml(firstName) + ",</p>" +
     "<p>Thank you for submitting your Assessment and Intake Form to <strong>Ascension Athlete Group</strong>. We received it and someone from our team will be in touch with you as soon as possible.</p>" +
-    "<p>In the meantime, you can reach us by replying to this email or at <a href=\"mailto:" + CONFIG.replyTo + "\">" + CONFIG.replyTo + "</a>.</p>" +
+    "<p>" + reachHtml + "</p>" +
     '<p style="margin-top:28px;color:#555;font-size:13px;letter-spacing:0.08em;text-transform:uppercase">Developing Athletes Beyond The Game.</p>' +
     '<p style="color:#555;font-size:13px">Ascension Athlete Group<br>' +
     '<a href="' + CONFIG.websiteUrl + '" style="color:#a8862f">' + CONFIG.websiteUrl.replace(/^https?:\/\//, "") + "</a><br>" +
     '<a href="' + CONFIG.instagramUrl + '" style="color:#a8862f">Instagram</a></p>' +
     "</div>";
 
-  MailApp.sendEmail({
+  var message = {
     to: email,
     subject: CONFIG.subject,
     body: text,
     htmlBody: html,
     name: CONFIG.fromName,
-    replyTo: CONFIG.replyTo,
-  });
+  };
+  if (CONFIG.replyTo) message.replyTo = CONFIG.replyTo;
+
+  MailApp.sendEmail(message);
 }
 
 /** Run this once from the Script editor to connect onFormSubmit to the form. */

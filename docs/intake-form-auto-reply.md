@@ -26,7 +26,7 @@ Subject: We received your intake form
 >
 > Thank you for submitting your Assessment and Intake Form to Ascension Athlete Group. We received it and someone from our team will be in touch with you as soon as possible.
 >
-> In the meantime, you can reach us by replying to this email or at info@ascensionathletegroup.com.
+> In the meantime, you can reach us by replying to this email.
 >
 > Developing Athletes Beyond The Game.
 > Ascension Athlete Group
@@ -35,7 +35,7 @@ To change the wording, edit the `text` and `html` sections in the script and sav
 
 ## Good to know
 
-- The email goes out from the Google account that owns the form, with replies directed to info@ascensionathletegroup.com. Change `replyTo` in the CONFIG block at the top of the script if that should be different.
+- The email goes out from the Google account that owns the form, and replies come back to that same account. Once the professional Ascension email address exists, put it in `replyTo` in the CONFIG block at the top of the script. The confirmation email will then also mention that address, and replies will go there instead.
 - It reads the athlete's address from the form's **Email** question and their name from **Full Name**. If those questions are ever renamed, update `emailQuestion` and `nameQuestion` in CONFIG to match.
 - A personal Gmail account can send about 100 of these per day. A Google Workspace account can send about 1,500. Either is far more than the form will see.
 - If the form is ever copied or rebuilt, the script does not come with it. Repeat the steps on the new form.

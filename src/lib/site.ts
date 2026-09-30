@@ -11,7 +11,9 @@ export const site = {
     label: "Houston, Texas",
   },
   contact: {
-    email: "info@ascensionathletegroup.com",
+    // Leave empty to hide the email everywhere on the site (contact section, footer, accessibility page).
+    // Fill it in once Jeff sends the professional address.
+    email: "",
   },
   social: {
     instagram: "https://www.instagram.com/ascensionathletegroup/",
@@ -28,7 +30,6 @@ export const site = {
 export const nav = [
   { label: "Divisions", href: "/#services" },
   { label: "Packages", href: "/#packages" },
-  { label: "Events", href: "/#events" },
   { label: "Founders", href: "/founders" },
   { label: "Contact", href: "/#contact" },
 ];

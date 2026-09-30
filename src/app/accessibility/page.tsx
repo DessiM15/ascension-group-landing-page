@@ -23,7 +23,9 @@ const done = [
 ];
 
 const limits = [
-  "The assessment and intake form is hosted by Google Forms and embedded on the contact section. Its accessibility is controlled by Google. If the embedded form is hard to use, the link above it opens the same form as a full page, and you can also email us your details instead.",
+  `The assessment and intake form is hosted by Google Forms and embedded on the contact section. Its accessibility is controlled by Google. If the embedded form is hard to use, the link above it opens the same form as a full page${
+    site.contact.email ? ", and you can also email us your details instead" : ", and you can also message us on Instagram instead"
+  }.`,
   "The introduction uses video footage with no dialogue, so no captions are provided. The words on screen are real text, not part of the video.",
   "Testimonial graphics are supplied by the athletes. Their quote is repeated as real text beside each graphic.",
 ];
@@ -80,13 +82,31 @@ export default function AccessibilityPage() {
           </Reveal>
           <Reveal className="lg:col-span-8" delay={0.1}>
             <p className="text-sm leading-relaxed text-silver">
-              If any part of this site is difficult to use, or you need information in another format, email{" "}
-              <a
-                href={`mailto:${site.contact.email}`}
-                className="text-bone underline decoration-gold/70 decoration-1 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold"
-              >
-                {site.contact.email}
-              </a>
+              If any part of this site is difficult to use, or you need information in another format,{" "}
+              {site.contact.email ? (
+                <>
+                  email{" "}
+                  <a
+                    href={`mailto:${site.contact.email}`}
+                    className="text-bone underline decoration-gold/70 decoration-1 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold"
+                  >
+                    {site.contact.email}
+                  </a>
+                </>
+              ) : (
+                <>
+                  message us on Instagram at{" "}
+                  <a
+                    href={site.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-bone underline decoration-gold/70 decoration-1 underline-offset-4 transition-colors hover:text-gold hover:decoration-gold"
+                  >
+                    {site.social.instagramHandle}
+                    <span className="sr-only"> (opens in new tab)</span>
+                  </a>
+                </>
+              )}
               . Tell us the page, what you were trying to do, and the browser or assistive technology you were using. We respond within
               five business days and fix confirmed problems as quickly as we can.
             </p>

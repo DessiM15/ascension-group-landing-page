@@ -336,25 +336,6 @@ export const founders: Coach[] = [
   },
 ];
 
-export const event = {
-  eyebrow: "Upcoming Event",
-  title: "Pro Day Prep Camp",
-  date: "Saturday, January 17, 2027",
-  time: "8:00 AM to 1:00 PM",
-  location: "Houston, Texas",
-  spots: "Limited to 24 athletes",
-  audience: "College athletes preparing for pro day and professional tryouts",
-  description:
-    "A one day intensive built around the tests that decide your pro day: 40 yard dash mechanics, shuttle and three cone, broad and vertical jump, and position drills on film. Athletes leave with a testing baseline, a plan, and their film reviewed by our staff.",
-  details: [
-    { label: "Date", value: "Saturday, January 17, 2027" },
-    { label: "Time", value: "8:00 AM to 1:00 PM" },
-    { label: "Location", value: "Houston, Texas" },
-    { label: "Spots", value: "Limited to 24 athletes" },
-  ],
-  image: "/images/event-turf.jpg",
-};
-
 export type Partner = { name: string; category: string };
 
 // Hidden until Jeff confirms official partners. Flip showPartners to true and replace the placeholders below.
